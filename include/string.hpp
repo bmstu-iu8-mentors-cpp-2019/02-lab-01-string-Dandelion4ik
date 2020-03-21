@@ -1,4 +1,4 @@
-// Copyright 2018 Your Name <your_email>
+// Copyright 2020 Kavykin Andrey Kaviandr@yandex.ru
 
 #ifndef INCLUDE_STRING_HPP_
 #define INCLUDE_STRING_HPP_
@@ -21,7 +21,7 @@ class String {
   /// Пользовательский конструктор
   /// <param name="data">Данные, которые требуется поместить в создаваемый
   /// объект </param>
-  String(const char* data);
+  explicit String(const char* data);
 
   /// Оператор присваивания
   /// <param name="data">Объект, который копируем </param>
@@ -113,6 +113,7 @@ class String {
 
  private:
   char* Data;
+  size_t size;
 };
 
 /// Оператор +
