@@ -94,22 +94,24 @@ bool String::operator<(const String &rhs) const {
 }
 
 size_t String::Find(const String &substr) const {
+    unsigned int i = 0;
     unsigned int j = 0;
-    size_t sub_size = 0, sub_pos = 0, last_pos = -1;
-    for (unsigned int i = 0; i < size && j < substr.size; ++i) {
-        if (Data[i] == substr.Data[j]) {
-            ++j;
-            if (sub_size == 0)
-                sub_pos = i;
-            ++sub_size;
-            if (sub_size == substr.size)
-                last_pos = sub_pos;
-        } else {
-            sub_size = 0;
-            j = 0;
+    while (i < size && j < substr.size) {
+        while (Data[i] != substr.Data[0] && i < size) {
+            ++i;
         }
+        unsigned int t = i;
+        while ((Data[i] == substr.Data[j]) && i < size
+               && j < substr.size) {
+            ++i;
+            ++j;
+        }
+        if (j == substr.size)
+            return t;
+        ++i;
+        j = 0;
     }
-    return last_pos;
+    return -1;
 }
 
 void String::Replace(char oldSymbol, char newSymbol) {
