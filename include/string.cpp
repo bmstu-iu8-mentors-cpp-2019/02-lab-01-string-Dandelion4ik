@@ -100,6 +100,8 @@ size_t String::Find(const String &substr) const {
         while (Data[i] != substr.Data[0] && i < size) {
             ++i;
         }
+        if (i == size)
+            return -1;
         unsigned int t = i;
         while (Data[i] == substr.Data[j] && i < size
                && j < substr.size) {
