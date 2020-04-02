@@ -69,9 +69,9 @@ String &String::operator*=(unsigned int m) {
 
 
 bool String::operator==(const String &rhs) const {
-    if (size != rhs.size)
+    if (size != rhs.size) {
         return false;
-    else {
+    } else {
         for (unsigned int i = 0; i < size; ++i) {
             if (Data[i] != rhs.Data[i])
                 return false;
@@ -148,7 +148,9 @@ void String::RTrim(char symbol) {
         delete[]Data;
         Data = new_str;
         size = new_size;
-    } else return;
+    } else {
+        return;
+    }
 }
 
 void String::LTrim(char symbol) {
@@ -164,7 +166,9 @@ void String::LTrim(char symbol) {
         delete[]Data;
         Data = new_str;
         size = new_size;
-    } else return;
+    } else {
+        return;
+    }
 }
 
 void String::swap(String &oth) {
