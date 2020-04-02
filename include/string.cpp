@@ -1,5 +1,6 @@
 // Copyright 2020 Kavykin Andrey Kaviandr@yandex.ru
 #include "string.hpp"
+#include <utility>
 
 String::String() {
     Data = nullptr;
