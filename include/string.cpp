@@ -96,13 +96,13 @@ bool String::operator<(const String &rhs) const {
 size_t String::Find(const String &substr) const {
     unsigned int i = 0;
     unsigned int j = 0;
-    while (i < size && j < substr.size) {
+    while (i < size) {
         while (Data[i] != substr.Data[0] && i < size) {
             ++i;
         }
         unsigned int t = i;
-        while (Data[i] == substr.Data[j] && i < size
-               && j < substr.size) {
+        while (j < substr.size && i < size
+               && Data[i] == substr.Data[j]) {
             ++i;
             ++j;
         }
